@@ -9,6 +9,7 @@ new Vue({
   },
   data() {
     return {
+      num: 0,
       options: {
         useEasing: true,
         useGrouping: true,
@@ -21,7 +22,13 @@ new Vue({
   },
   methods: {
     callback: function(ins) {
-      ins.update(ins.endVal + 100);
+      // ins.update(ins.endVal + 100);
     }
+  },
+  mounted() {
+    const that = this;
+    setInterval(function() {
+      that.num = that.num + 100;
+    }, 3000);
   }
 });

@@ -46,20 +46,17 @@
       };
     },
     computed: {
-      getStart: function() {
-        return this.start;
-      },
-      getEnd: function() {
-        return this.end;
-      },
-      getDecimals: function() {
-        return this.decimals;
-      },
-      getDuration: function() {
-        return this.duration;
-      }
     },
     watch: {
+      end: {
+        handler: function(value) {
+          const that = this;
+          if (that.instance && that.instance.update) {
+            that.instance.update(value);
+          }
+        },
+        deep: false
+      }
     },
     methods: {
       init() {
@@ -68,10 +65,10 @@
           const dom = that.$el;
           that.instance = new CountUp(
             dom,
-            that.getStart,
-            that.getEnd,
-            that.getDecimals,
-            that.getDuration,
+            that.start,
+            that.end,
+            that.decimals,
+            that.duration,
             that.options
           );
           that.instance.start(function() {
