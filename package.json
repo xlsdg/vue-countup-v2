@@ -1,7 +1,7 @@
 {
   "name": "vue-countup-v2",
   "title": "vue-countup-v2",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Vue.js(v2.x+) component wrap for countUp.js(v1.x+)",
   "author": "xLsDg <xlsdg@qq.com> (https://blog.xlsdg.org/)",
   "homepage": "https://github.com/xlsdg/vue-countup-v2",
