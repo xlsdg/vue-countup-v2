@@ -81,48 +81,48 @@
         that.instance = null;
       }
     },
-    beforeCreate() {
+    // beforeCreate() {
       // const that = this;
       // console.log('beforeCreate');
-    },
-    created() {
+    // },
+    // created() {
       // const that = this;
       // console.log('created');
-    },
-    beforeMount() {
+    // },
+    // beforeMount() {
       // const that = this;
       // console.log('beforeMount');
-    },
+    // },
     mounted() {
       const that = this;
       // console.log('mounted');
       that.init();
     },
-    beforeUpdate() {
+    // beforeUpdate() {
       // const that = this;
       // console.log('beforeUpdate');
-    },
-    updated() {
+    // },
+    // updated() {
       // const that = this;
       // console.log('updated');
-    },
-    activated() {
+    // },
+    // activated() {
       // const that = this;
       // console.log('activated');
-    },
-    deactivated() {
+    // },
+    // deactivated() {
       // const that = this;
       // console.log('deactivated');
-    },
+    // },
     beforeDestroy() {
       const that = this;
       // console.log('beforeDestroy');
       that.destroy();
     },
-    destroyed() {
+    // destroyed() {
       // const that = this;
       // console.log('destroyed');
-    },
+    // },
     start(callback) {
       const that = this;
       if (that.instance && that.instance.start) {
