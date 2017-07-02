@@ -79,6 +79,32 @@
       destroy() {
         const that = this;
         that.instance = null;
+      },
+      start(callback) {
+        const that = this;
+        if (that.instance && that.instance.start) {
+          that.instance.start(function() {
+            callback && callback(that.instance);
+          });
+        }
+      },
+      pauseResume() {
+        const that = this;
+        if (that.instance && that.instance.pauseResume) {
+          that.instance.pauseResume();
+        }
+      },
+      reset() {
+        const that = this;
+        if (that.instance && that.instance.reset) {
+          that.instance.reset();
+        }
+      },
+      update(newEndVal) {
+        const that = this;
+        if (that.instance && that.instance.update) {
+          that.instance.update(newEndVal);
+        }
       }
     },
     // beforeCreate() {
@@ -118,36 +144,10 @@
       const that = this;
       // console.log('beforeDestroy');
       that.destroy();
-    },
+    }
     // destroyed() {
       // const that = this;
       // console.log('destroyed');
     // },
-    start(callback) {
-      const that = this;
-      if (that.instance && that.instance.start) {
-        that.instance.start(function() {
-          callback && callback(that.instance);
-        });
-      }
-    },
-    pauseResume() {
-      const that = this;
-      if (that.instance && that.instance.pauseResume) {
-        that.instance.pauseResume();
-      }
-    },
-    reset() {
-      const that = this;
-      if (that.instance && that.instance.reset) {
-        that.instance.reset();
-      }
-    },
-    update(newEndVal) {
-      const that = this;
-      if (that.instance && that.instance.update) {
-        that.instance.update(newEndVal);
-      }
-    }
   };
 </script>
