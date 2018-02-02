@@ -50,7 +50,7 @@ $ npm install --save countup.js vue-countup-v2
       };
     },
     methods: {
-      onReady: function(instance, ECharts) {
+      onReady: function(instance, CountUp) {
         const that = this;
         instance.update(that.endVal + 100);
       }
