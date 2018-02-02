@@ -1,12 +1,12 @@
 # vue-countup-v2
 
-> Vue.js(v2.x+) component wrap for countUp.js(v1.x+)
+> Vue.js(v2.x+) component wrap for CountUp.js(v1.x+)
 
 
 ## Installation
 
 ``` bash
-$ npm install --save vue-countup-v2
+$ npm install --save countup.js vue-countup-v2
 ```
 
 
@@ -15,26 +15,30 @@ $ npm install --save vue-countup-v2
 ``` vue
 <template>
   <div class="iCountUp">
-    <i-count-up
-      :start="0"
-      :end="120500"
-      :decimals="0"
-      :duration="2.5"
+    <ICountUp
+      :startVal="startVal"
+      :endVal="endVal"
+      :decimals="decimals"
+      :duration="duration"
       :options="options"
-      :callback="callback"
-    ></i-count-up>
+      @ready="onReady"
+    />
   </div>
 </template>
 
 <script type="text/babel">
   import ICountUp from 'vue-countup-v2';
   export default {
-    name: 'view',
+    name: 'demo',
     components: {
       ICountUp
     },
     data() {
       return {
+        startVal: 0,
+        endVal: 120500,
+        decimals: 0,
+        duration: 2.5,
         options: {
           useEasing: true,
           useGrouping: true,
@@ -46,8 +50,9 @@ $ npm install --save vue-countup-v2
       };
     },
     methods: {
-      callback: function(ins) {
-        ins.update(ins.endVal + 100);
+      onReady: function(instance, ECharts) {
+        const that = this;
+        instance.update(that.endVal + 100);
       }
     }
   };
@@ -64,11 +69,11 @@ $ npm install --save vue-countup-v2
 
 ## Properties
 
-* `start` **[Number]**
+* `startVal` **[Number]**
 
   Optional; `0` by defualt. The value you want to begin at.
 
-* `end` **[Number]**
+* `endVal` **[Number]**
 
   Required; The value you want to arrive at.
 
@@ -84,10 +89,6 @@ $ npm install --save vue-countup-v2
 
   Optional; Formatting/easing options object.
 
-* `callback` **[Function]**
-
-  Optional; Some method to call on complete.
-
 See more [countUp.js](https://github.com/inorganik/countUp.js)
 
 
@@ -100,15 +101,6 @@ See more [countUp.js](https://github.com/inorganik/countUp.js)
 
 Learn more [countUp.js](https://github.com/inorganik/countUp.js)
 
-
-## Development
-
-``` bash
-$ git clone https://github.com/xlsdg/vue-countup-v2.git vue-countup
-$ cd vue-countup && npm i && npm run dev
-```
-
-Then open `http://localhost:8080/` to see the demo.
 
 # License
 
