@@ -21,9 +21,9 @@ module.exports = {
     },
     'countup.js': {
       root: 'CountUp',
-      commonjs2: 'countup',
-      commonjs: 'countup',
-      amd: 'countup',
+      commonjs2: 'countup.js',
+      commonjs: 'countup.js',
+      amd: 'countup.js',
     }
   },
   plugins: [
