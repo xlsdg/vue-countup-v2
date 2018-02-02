@@ -1,6 +1,6 @@
 {
   "name": "vue-countup-v2",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Vue.js(v2.x+) component wrap for CountUp.js(v1.x+)",
   "keywords": [
     "countup",
