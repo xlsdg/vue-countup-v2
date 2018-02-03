@@ -74,6 +74,34 @@ const ICountUp = {
     uninit() {
       const that = this;
       that.instance = null;
+    },
+    start(callback) {
+      const that = this;
+
+      if (that.instance && _.isFunction(that.instance.start) && _.isFunction(callback)) {
+        return that.instance.start(callback);
+      }
+    },
+    pauseResume() {
+      const that = this;
+
+      if (that.instance && _.isFunction(that.instance.pauseResume)) {
+        return that.instance.pauseResume();
+      }
+    },
+    reset() {
+      const that = this;
+
+      if (that.instance && _.isFunction(that.instance.reset)) {
+        return that.instance.reset();
+      }
+    },
+    update(newEndVal) {
+      const that = this;
+
+      if (that.instance && _.isFunction(that.instance.update)) {
+        return that.instance.update(newEndVal);
+      }
     }
   },
   // beforeCreate() {
@@ -118,34 +146,6 @@ const ICountUp = {
     // const that = this;
     // console.log('destroyed');
   // },
-  start(callback) {
-    const that = this;
-
-    if (that.instance && _.isFunction(that.instance.start) && _.isFunction(callback)) {
-      return that.instance.start(callback);
-    }
-  },
-  pauseResume() {
-    const that = this;
-
-    if (that.instance && _.isFunction(that.instance.pauseResume)) {
-      return that.instance.pauseResume();
-    }
-  },
-  reset() {
-    const that = this;
-
-    if (that.instance && _.isFunction(that.instance.reset)) {
-      return that.instance.reset();
-    }
-  },
-  update(newEndVal) {
-    const that = this;
-
-    if (that.instance && _.isFunction(that.instance.update)) {
-      return that.instance.update(newEndVal);
-    }
-  },
   render(h) {
     // const that = this;
     return h('span', {});
