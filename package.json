@@ -1,6 +1,6 @@
 {
   "name": "vue-countup-v2",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "description": "Vue.js(v2.x+) component wrap for CountUp.js(v1.x+)",
   "keywords": [
     "countup",
@@ -20,28 +20,30 @@
     "dist",
     "src"
   ],
-  "main": "dist/vue-countup.js",
+  "cdn": "dist/vue-countup-v2.js",
+  "main": "dist/vue-countup-v2.cjs.js",
+  "unpkg": "dist/vue-countup-v2.js",
+  "module": "dist/vue-countup-v2.es.js",
+  "jsdelivr": "dist/vue-countup-v2.js",
+  "umd:main": "dist/vue-countup-v2.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/xlsdg/vue-countup-v2.git"
   },
   "scripts": {
-    "build": "webpack --progress --hide-modules"
-  },
-  "dependencies": {
-    "lodash": "latest"
+    "build": "bili src/index.js --format es,cjs,umd"
   },
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-plugin-lodash": "^3.3.2",
-    "babel-preset-env": "^1.6.1",
-    "lodash-webpack-plugin": "^0.11.4",
-    "webpack": "^3.10.0"
+    "bili": "^3.1.2"
   },
   "peerDependencies": {
-    "countup.js": "*",
-    "vue": "*"
+    "countup.js": "1.x",
+    "vue": "2.x"
   },
-  "title": "vue-countup-v2"
+  "title": "vue-countup-v2",
+  "bili": {
+    "global": {
+      "countup.js": "CountUp"
+    }
+  }
 }
