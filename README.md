@@ -1,6 +1,6 @@
 # vue-countup-v2
 
-> Vue.js(v2.x+) component wrap for CountUp.js(v1.x+)
+> Vue.js component wrap for CountUp.js
 
 
 ## Installation
