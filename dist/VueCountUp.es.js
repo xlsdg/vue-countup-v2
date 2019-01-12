@@ -1,162 +1,157 @@
 import isFunction from 'lodash-es/isFunction';
 import CountUp from 'countup.js';
 
-const ICountUp = {
+var ICountUp = {
   __countup__: CountUp,
   name: 'ICountUp',
   props: {
     startVal: {
       type: Number,
       required: false,
-      default: 0
+      default: 0,
     },
     endVal: {
       type: Number,
-      required: true
+      required: true,
     },
     decimals: {
       type: Number,
       required: false,
-      default: 0
+      default: 0,
     },
     duration: {
       type: Number,
       required: false,
-      default: 2
+      default: 2,
     },
     options: {
       type: Object,
-      required: false
-    }
+      required: false,
+    },
   },
-  data() {
+  data: function data() {
     return {
-      instance: null
+      instance: null,
     };
   },
   // computed: {},
   watch: {
     endVal: {
-      handler: function(value) {
-        const that = this;
+      handler: function handler(value) {
+        var that = this;
 
         if (that.instance && isFunction(that.instance.update)) {
           that.instance.update(value);
         }
       },
-      deep: false
-    }
+      deep: false,
+    },
   },
   methods: {
-    init() {
-      const that = this;
+    init: function init() {
+      var that = this;
+
       if (that.instance) {
         return;
       }
 
-      const dom = that.$el;
-      const instance = new CountUp(
-        dom,
-        that.startVal,
-        that.endVal,
-        that.decimals,
-        that.duration,
-        that.options
-      );
+      var dom = that.$el;
+      var instance = new CountUp(dom, that.startVal, that.endVal, that.decimals, that.duration, that.options);
 
-      if (instance.error) {
-        // error
-      } else {
-        instance.start(() => that.$emit('ready', instance, CountUp));
+      if (instance.error);
+      else {
+        instance.start(function() {
+          return that.$emit('ready', instance, CountUp);
+        });
         that.instance = instance;
       }
     },
-    uninit() {
-      const that = this;
+    uninit: function uninit() {
+      var that = this;
       that.instance = null;
     },
-    printValue(value) {
-      const that = this;
+    printValue: function printValue(value) {
+      var that = this;
 
       if (that.instance && isFunction(that.instance.printValue)) {
         return that.instance.printValue(value);
       }
     },
-    start(callback) {
-      const that = this;
+    start: function start(callback) {
+      var that = this;
 
       if (that.instance && isFunction(that.instance.start) && isFunction(callback)) {
         return that.instance.start(callback);
       }
     },
-    pauseResume() {
-      const that = this;
+    pauseResume: function pauseResume() {
+      var that = this;
 
       if (that.instance && isFunction(that.instance.pauseResume)) {
         return that.instance.pauseResume();
       }
     },
-    reset() {
-      const that = this;
+    reset: function reset() {
+      var that = this;
 
       if (that.instance && isFunction(that.instance.reset)) {
         return that.instance.reset();
       }
     },
-    update(newEndVal) {
-      const that = this;
+    update: function update(newEndVal) {
+      var that = this;
 
       if (that.instance && isFunction(that.instance.update)) {
         return that.instance.update(newEndVal);
       }
-    }
+    },
   },
   // beforeCreate() {
-    // const that = this;
-    // console.log('beforeCreate');
+  // const that = this;
+  // console.log('beforeCreate');
   // },
   // created() {
-    // const that = this;
-    // console.log('created');
+  // const that = this;
+  // console.log('created');
   // },
   // beforeMount() {
-    // const that = this;
-    // console.log('beforeMount');
+  // const that = this;
+  // console.log('beforeMount');
   // },
-  mounted() {
-    const that = this;
-    // console.log('mounted');
+  mounted: function mounted() {
+    var that = this; // console.log('mounted');
+
     that.init();
   },
   // beforeUpdate() {
-    // const that = this;
-    // console.log('beforeUpdate');
+  // const that = this;
+  // console.log('beforeUpdate');
   // },
   // updated() {
-    // const that = this;
-    // console.log('updated');
+  // const that = this;
+  // console.log('updated');
   // },
   // activated() {
-    // const that = this;
-    // console.log('activated');
+  // const that = this;
+  // console.log('activated');
   // },
   // deactivated() {
-    // const that = this;
-    // console.log('deactivated');
+  // const that = this;
+  // console.log('deactivated');
   // },
-  beforeDestroy() {
-    const that = this;
-    // console.log('beforeDestroy');
+  beforeDestroy: function beforeDestroy() {
+    var that = this; // console.log('beforeDestroy');
+
     that.uninit();
   },
   // destroyed() {
-    // const that = this;
-    // console.log('destroyed');
+  // const that = this;
+  // console.log('destroyed');
   // },
-  render(h) {
+  render: function render(h) {
     // const that = this;
     return h('span', {});
-  }
+  },
 };
 
 export default ICountUp;

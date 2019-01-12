@@ -1,47 +1,66 @@
 {
-  "name": "vue-countup-v2",
-  "version": "1.0.3",
-  "description": "Vue.js(v2.x+) component wrap for CountUp.js(v1.x+)",
+  "author": "xLsDg <xlsdg@qq.com> (https://blog.xlsdg.org/)",
+  "browser": "dist/VueCountUp.js",
+  "bugs": {
+    "url": "https://github.com/xlsdg/vue-countup-v2/issues"
+  },
+  "dependencies": {
+    "lodash-es": "latest"
+  },
+  "description": "Vue.js component wrap for countUp.js",
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "bili": "^3.4.2",
+    "eslint": "^5.12.0",
+    "eslint-config-alloy": "^1.4.2",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-plugin-vue": "^5.1.0",
+    "prettier": "^1.15.3",
+    "rollup-plugin-prettier": "^0.5.0",
+    "rollup-plugin-vue": "^4.4.0",
+    "stylelint": "^9.9.0",
+    "stylelint-config-prettier": "^4.0.0",
+    "stylelint-config-standard": "^18.2.0",
+    "stylelint-order": "^2.0.0",
+    "vue-eslint-parser": "^5.0.0",
+    "vue-template-compiler": "^2.5.22"
+  },
+  "engines": {
+    "node": ">=8",
+    "npm": ">=5"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "homepage": "https://github.com/xlsdg/vue-countup-v2",
+  "jsdelivr": "dist/VueCountUp.min.js",
   "keywords": [
-    "countup",
     "countup.js",
     "library",
     "vue",
     "vue-countup",
     "vue-countup-v2"
   ],
-  "homepage": "https://github.com/xlsdg/vue-countup-v2",
-  "bugs": {
-    "url": "https://github.com/xlsdg/vue-countup-v2/issues"
-  },
   "license": "MIT",
-  "author": "xLsDg <xlsdg@qq.com> (https://blog.xlsdg.org/)",
-  "files": [
-    "dist",
-    "src"
-  ],
-  "main": "dist/vue-countup.js",
+  "main": "dist/VueCountUp.cjs.js",
+  "module": "dist/VueCountUp.es.js",
+  "name": "vue-countup-v2",
+  "peerDependencies": {
+    "countup.js": "latest",
+    "vue": "latest"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/xlsdg/vue-countup-v2.git"
   },
   "scripts": {
-    "build": "webpack --progress --hide-modules"
+    "build": "bili",
+    "release:major": "npm version major && npm publish",
+    "release:minor": "npm version minor && npm publish",
+    "release:patch": "npm version patch && npm publish"
   },
-  "dependencies": {
-    "lodash": "latest"
-  },
-  "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-plugin-lodash": "^3.3.2",
-    "babel-preset-env": "^1.6.1",
-    "lodash-webpack-plugin": "^0.11.4",
-    "webpack": "^3.10.0"
-  },
-  "peerDependencies": {
-    "countup.js": "*",
-    "vue": "*"
-  },
-  "title": "vue-countup-v2"
+  "source": "src/index.jsx",
+  "unpkg": "dist/VueCountUp.min.js",
+  "version": "1.0.1"
 }

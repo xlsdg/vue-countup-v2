@@ -1,0 +1,56 @@
+{
+  "env": {
+    "amd": false,
+    "applescript": false,
+    "atomtest": false,
+    "browser": true,
+    "commonjs": false,
+    "embertest": false,
+    "es6": true,
+    "greasemonkey": false,
+    "jasmine": false,
+    "jest": false,
+    "jquery": false,
+    "meteor": false,
+    "mocha": false,
+    "mongo": false,
+    "nashorn": false,
+    "node": false,
+    "phantomjs": false,
+    "prototypejs": false,
+    "protractor": false,
+    "qunit": false,
+    "serviceworker": false,
+    "shared-node-browser": false,
+    "shelljs": false,
+    "webextensions": false,
+    "worker": false
+  },
+  "extends": [
+    "eslint-config-alloy/vue",
+    "plugin:prettier/recommended",
+    "prettier/flowtype",
+    "prettier/react",
+    "prettier/standard",
+    "prettier/unicorn",
+    "prettier/vue"
+  ],
+  "globals": {},
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "prettier"
+  ],
+  "root": true,
+  "rules": {
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/no-noninteractive-element-interactions": "off",
+    "prettier/prettier": "error"
+  }
+}
