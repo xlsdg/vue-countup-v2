@@ -2,13 +2,11 @@
 
 > Vue.js component wrap for CountUp.js
 
-
 ## Installation
 
-``` bash
+```bash
 $ npm install --save countup.js vue-countup-v2
 ```
-
 
 ## Usage
 
@@ -16,10 +14,7 @@ $ npm install --save countup.js vue-countup-v2
 <template>
   <div class="iCountUp">
     <ICountUp
-      :startVal="startVal"
       :endVal="endVal"
-      :decimals="decimals"
-      :duration="duration"
       :options="options"
       @ready="onReady"
     />
@@ -35,10 +30,7 @@ $ npm install --save countup.js vue-countup-v2
     },
     data() {
       return {
-        startVal: 0,
         endVal: 120500,
-        decimals: 0,
-        duration: 2.5,
         options: {
           useEasing: true,
           useGrouping: true,
@@ -69,28 +61,15 @@ $ npm install --save countup.js vue-countup-v2
 
 ## Properties
 
-* `startVal` **[Number]**
-
-  Optional; `0` by defualt. The value you want to begin at.
-
 * `endVal` **[Number]**
 
   Required; The value you want to arrive at.
-
-* `decimals` **[Number]**
-
-  Optional; `0` by defualt. Number of decimal places in number.
-
-* `duration` **[Number]**
-
-  Optional; `2` by defualt. Duration in seconds.
 
 * `options` **[Object]**
 
   Optional; Formatting/easing options object.
 
 See more [countUp.js](https://github.com/inorganik/countUp.js)
-
 
 ## Static Methods
 
@@ -101,7 +80,6 @@ See more [countUp.js](https://github.com/inorganik/countUp.js)
 
 Learn more [countUp.js](https://github.com/inorganik/countUp.js)
 
-
-# License
+## License
 
 MIT
