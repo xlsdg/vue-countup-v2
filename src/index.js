@@ -1,28 +1,13 @@
-import isFunction from 'lodash-es/isFunction';
+import _isFunction from 'lodash-es/isFunction';
 import CountUp from 'countup.js';
 
 const ICountUp = {
   __countup__: CountUp,
   name: 'ICountUp',
   props: {
-    startVal: {
-      type: Number,
-      required: false,
-      default: 0
-    },
     endVal: {
       type: Number,
       required: true
-    },
-    decimals: {
-      type: Number,
-      required: false,
-      default: 0
-    },
-    duration: {
-      type: Number,
-      required: false,
-      default: 2
     },
     options: {
       type: Object,
@@ -40,7 +25,7 @@ const ICountUp = {
       handler: function(value) {
         const that = this;
 
-        if (that.instance && isFunction(that.instance.update)) {
+        if (that.instance && _isFunction(that.instance.update)) {
           that.instance.update(value);
         }
       },
@@ -57,10 +42,7 @@ const ICountUp = {
       const dom = that.$el;
       const instance = new CountUp(
         dom,
-        that.startVal,
         that.endVal,
-        that.decimals,
-        that.duration,
         that.options
       );
 
@@ -78,35 +60,35 @@ const ICountUp = {
     printValue(value) {
       const that = this;
 
-      if (that.instance && isFunction(that.instance.printValue)) {
+      if (that.instance && _isFunction(that.instance.printValue)) {
         return that.instance.printValue(value);
       }
     },
     start(callback) {
       const that = this;
 
-      if (that.instance && isFunction(that.instance.start) && isFunction(callback)) {
+      if (that.instance && _isFunction(that.instance.start) && _isFunction(callback)) {
         return that.instance.start(callback);
       }
     },
     pauseResume() {
       const that = this;
 
-      if (that.instance && isFunction(that.instance.pauseResume)) {
+      if (that.instance && _isFunction(that.instance.pauseResume)) {
         return that.instance.pauseResume();
       }
     },
     reset() {
       const that = this;
 
-      if (that.instance && isFunction(that.instance.reset)) {
+      if (that.instance && _isFunction(that.instance.reset)) {
         return that.instance.reset();
       }
     },
     update(newEndVal) {
       const that = this;
 
-      if (that.instance && isFunction(that.instance.update)) {
+      if (that.instance && _isFunction(that.instance.update)) {
         return that.instance.update(newEndVal);
       }
     }

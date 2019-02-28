@@ -172,24 +172,9 @@
     __countup__: CountUp,
     name: 'ICountUp',
     props: {
-      startVal: {
-        type: Number,
-        required: false,
-        default: 0,
-      },
       endVal: {
         type: Number,
         required: true,
-      },
-      decimals: {
-        type: Number,
-        required: false,
-        default: 0,
-      },
-      duration: {
-        type: Number,
-        required: false,
-        default: 2,
       },
       options: {
         type: Object,
@@ -223,7 +208,7 @@
         }
 
         var dom = that.$el;
-        var instance = new CountUp(dom, that.startVal, that.endVal, that.decimals, that.duration, that.options);
+        var instance = new CountUp(dom, that.endVal, that.options);
 
         if (instance.error);
         else {

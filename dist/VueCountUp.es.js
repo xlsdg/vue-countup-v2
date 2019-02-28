@@ -1,28 +1,13 @@
-import isFunction from 'lodash-es/isFunction';
+import _isFunction from 'lodash-es/isFunction';
 import CountUp from 'countup.js';
 
 var ICountUp = {
   __countup__: CountUp,
   name: 'ICountUp',
   props: {
-    startVal: {
-      type: Number,
-      required: false,
-      default: 0,
-    },
     endVal: {
       type: Number,
       required: true,
-    },
-    decimals: {
-      type: Number,
-      required: false,
-      default: 0,
-    },
-    duration: {
-      type: Number,
-      required: false,
-      default: 2,
     },
     options: {
       type: Object,
@@ -40,7 +25,7 @@ var ICountUp = {
       handler: function handler(value) {
         var that = this;
 
-        if (that.instance && isFunction(that.instance.update)) {
+        if (that.instance && _isFunction(that.instance.update)) {
           that.instance.update(value);
         }
       },
@@ -56,7 +41,7 @@ var ICountUp = {
       }
 
       var dom = that.$el;
-      var instance = new CountUp(dom, that.startVal, that.endVal, that.decimals, that.duration, that.options);
+      var instance = new CountUp(dom, that.endVal, that.options);
 
       if (instance.error);
       else {
@@ -73,35 +58,35 @@ var ICountUp = {
     printValue: function printValue(value) {
       var that = this;
 
-      if (that.instance && isFunction(that.instance.printValue)) {
+      if (that.instance && _isFunction(that.instance.printValue)) {
         return that.instance.printValue(value);
       }
     },
     start: function start(callback) {
       var that = this;
 
-      if (that.instance && isFunction(that.instance.start) && isFunction(callback)) {
+      if (that.instance && _isFunction(that.instance.start) && _isFunction(callback)) {
         return that.instance.start(callback);
       }
     },
     pauseResume: function pauseResume() {
       var that = this;
 
-      if (that.instance && isFunction(that.instance.pauseResume)) {
+      if (that.instance && _isFunction(that.instance.pauseResume)) {
         return that.instance.pauseResume();
       }
     },
     reset: function reset() {
       var that = this;
 
-      if (that.instance && isFunction(that.instance.reset)) {
+      if (that.instance && _isFunction(that.instance.reset)) {
         return that.instance.reset();
       }
     },
     update: function update(newEndVal) {
       var that = this;
 
-      if (that.instance && isFunction(that.instance.update)) {
+      if (that.instance && _isFunction(that.instance.update)) {
         return that.instance.update(newEndVal);
       }
     },
