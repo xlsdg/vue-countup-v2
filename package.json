@@ -1,5 +1,5 @@
 {
-  "author": "xLsDg <xlsdg@qq.com> (https://blog.xlsdg.org/)",
+  "author": "xLsDg <xlsdg@qq.com> (https://xlsdg.org/)",
   "browser": "dist/VueCountUp.js",
   "bugs": {
     "url": "https://github.com/xlsdg/vue-countup-v2/issues"
@@ -11,7 +11,7 @@
   "devDependencies": {
     "babel-eslint": "^10.0.1",
     "bili": "^3.4.2",
-    "eslint": "^5.14.1",
+    "eslint": "^5.15.0",
     "eslint-config-alloy": "^1.4.2",
     "eslint-config-prettier": "^4.1.0",
     "eslint-plugin-vue": "^5.2.2",
@@ -21,9 +21,9 @@
     "stylelint": "^9.10.1",
     "stylelint-config-prettier": "^5.0.0",
     "stylelint-config-standard": "^18.2.0",
-    "stylelint-order": "^2.0.0",
-    "vue-eslint-parser": "^6.0.2",
-    "vue-template-compiler": "^2.6.7"
+    "stylelint-order": "^2.1.0",
+    "vue-eslint-parser": "^6.0.3",
+    "vue-template-compiler": "^2.6.8"
   },
   "engines": {
     "node": ">=8",
@@ -60,7 +60,7 @@
     "release:minor": "npm version minor && npm publish",
     "release:patch": "npm version patch && npm publish"
   },
-  "source": "src/index.jsx",
+  "source": "src/index.js",
   "unpkg": "dist/VueCountUp.min.js",
   "version": "3.0.0"
 }
