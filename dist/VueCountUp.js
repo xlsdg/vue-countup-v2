@@ -4,10 +4,8 @@
     : typeof define === 'function' && define.amd
     ? define(['countup.js'], factory)
     : (global.VueCountUp = factory(global.CountUp));
-})(this, function(CountUp) {
+})(this, function(countup_js) {
   'use strict';
-
-  CountUp = CountUp && CountUp.hasOwnProperty('default') ? CountUp['default'] : CountUp;
 
   /** Detect free variable `global` from Node.js. */
   var freeGlobal = typeof global == 'object' && global && global.Object === Object && global;
@@ -169,7 +167,7 @@
   }
 
   var ICountUp = {
-    __countup__: CountUp,
+    __countup__: countup_js.CountUp,
     name: 'ICountUp',
     props: {
       endVal: {
@@ -208,12 +206,12 @@
         }
 
         var dom = that.$el;
-        var instance = new CountUp(dom, that.endVal, that.options);
+        var instance = new countup_js.CountUp(dom, that.endVal, that.options);
 
         if (instance.error);
         else {
           instance.start(function() {
-            return that.$emit('ready', instance, CountUp);
+            return that.$emit('ready', instance, countup_js.CountUp);
           });
           that.instance = instance;
         }

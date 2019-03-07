@@ -1,5 +1,5 @@
 import _isFunction from 'lodash-es/isFunction';
-import CountUp from 'countup.js';
+import { CountUp } from 'countup.js';
 
 var ICountUp = {
   __countup__: CountUp,

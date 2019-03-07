@@ -5,10 +5,10 @@ function _interopDefault(ex) {
 }
 
 var _isFunction = _interopDefault(require('lodash-es/isFunction'));
-var CountUp = _interopDefault(require('countup.js'));
+var countup_js = require('countup.js');
 
 var ICountUp = {
-  __countup__: CountUp,
+  __countup__: countup_js.CountUp,
   name: 'ICountUp',
   props: {
     endVal: {
@@ -47,12 +47,12 @@ var ICountUp = {
       }
 
       var dom = that.$el;
-      var instance = new CountUp(dom, that.endVal, that.options);
+      var instance = new countup_js.CountUp(dom, that.endVal, that.options);
 
       if (instance.error);
       else {
         instance.start(function() {
-          return that.$emit('ready', instance, CountUp);
+          return that.$emit('ready', instance, countup_js.CountUp);
         });
         that.instance = instance;
       }
