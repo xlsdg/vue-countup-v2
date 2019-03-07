@@ -62,5 +62,5 @@
   },
   "source": "src/index.js",
   "unpkg": "dist/VueCountUp.min.js",
-  "version": "3.0.0"
+  "version": "3.0.1"
 }
