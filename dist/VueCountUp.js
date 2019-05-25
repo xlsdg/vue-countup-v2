@@ -170,6 +170,11 @@
     __countup__: countup_js.CountUp,
     name: 'ICountUp',
     props: {
+      startOnMount: {
+        type: Boolean,
+        required: false,
+        default: true,
+      },
       endVal: {
         type: Number,
         required: true,
@@ -210,9 +215,11 @@
 
         if (instance.error);
         else {
-          instance.start(function() {
-            return that.$emit('ready', instance, countup_js.CountUp);
-          });
+          this.startOnMount
+            ? instance.start(function() {
+                return that.$emit('ready', instance, countup_js.CountUp);
+              })
+            : that.$emit('ready', instance, countup_js.CountUp);
           that.instance = instance;
         }
       },
