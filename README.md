@@ -15,6 +15,7 @@ $ npm install --save countup.js vue-countup-v2
   <div class="iCountUp">
     <ICountUp
       :endVal="endVal"
+      :startOnMount="true"
       :options="options"
       @ready="onReady"
     />
@@ -64,6 +65,10 @@ $ npm install --save countup.js vue-countup-v2
 * `endVal` **[Number]**
 
   Required; The value you want to arrive at.
+
+* `startOnMount` **[Boolean]**
+
+  Optional; Whether to start counting when the element mounts.
 
 * `options` **[Object]**
 
