@@ -5,6 +5,11 @@ const ICountUp = {
   __countup__: CountUp,
   name: 'ICountUp',
   props: {
+    startOnMount: {
+      type: Boolean,
+      required: false,
+      default: true
+    },
     endVal: {
       type: Number,
       required: true
@@ -49,7 +54,9 @@ const ICountUp = {
       if (instance.error) {
         // error
       } else {
-        instance.start(() => that.$emit('ready', instance, CountUp));
+        this.startOnMount
+          ? instance.start(() => that.$emit('ready', instance, CountUp))
+          : that.$emit('ready', instance, CountUp);
         that.instance = instance;
       }
     },
