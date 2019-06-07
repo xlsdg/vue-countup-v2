@@ -1,38 +1,36 @@
-'use strict';
-
 module.exports = {
-  input: 'src/index.js',
-  outDir: 'dist',
-  // config: '',
-  format: ['cjs', 'umd', 'umd-min', 'es'],
-  moduleName: 'VueCountUp',
-  global: {
-    'vue': 'Vue',
-    'countup.js': 'CountUp'
-  },
-  filename: '[name][suffix].js',
-  name: 'VueCountUp',
-  // inline: false,
-  // cwd: '',
-  // external: [
-  //   'vue',
-  //   'countup.js'
-  // ],
+  // babel: {
+  //   asyncToPromises: true,
+  //   babelrc: false,
+  //   configFile: false,
+  //   jsx: 'react',
+  //   minimal: false,
+  //   objectAssign: 'myAssign',
+  // },
   banner: false,
-  postcss: {
-    modules: true
-  },
-  js: 'babel',
-  plugin: ['vue'],
-  target: 'browser',
-  // jsx: 'react',
-  // objectAssign: undefined,
-  // exports: 'auto',
-  // replace: {},
-  // alias: {},
-  pretty: true
+  bundleNodeModules: true,
   // env: {},
-  // virtualModules: {},
-  // sizeLimit: {},
-  // extendOptions: {},
+  // extendConfig: () => {},
+  // extendRollupConfig: () => {},
+  // externals: [],
+  globals: {
+    vue: 'Vue',
+    'countup.js': 'CountUp',
+  },
+  input: 'src/countup.vue',
+  output: {
+    dir: 'dist',
+    extractCSS: false,
+    // fileName: '[name][suffix].js',
+    format: ['cjs-min', 'es-min', 'umd-min'],
+    minify: true,
+    moduleName: 'VueCountUp',
+    sourceMap: true,
+    sourceMapExcludeSources: true,
+    target: 'browser',
+  },
+  plugins: {
+    vue: true,
+  },
+  // resolvePlugins: {},
 };

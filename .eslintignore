@@ -6,3 +6,10 @@
 
 # misc
 .DS_Store
+
+# IDE
+.idea
+.vscode
+
+# config
+bili.config.js

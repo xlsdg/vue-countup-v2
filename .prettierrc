@@ -16,7 +16,7 @@
     {
       "files": "src/**/*.{js,jsx}",
       "options": {
-        "parser": "babylon"
+        "parser": "babel"
       }
     },
     {

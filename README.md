@@ -14,6 +14,7 @@ $ npm install --save countup.js vue-countup-v2
 <template>
   <div class="iCountUp">
     <ICountUp
+      :delay="delay"
       :endVal="endVal"
       :options="options"
       @ready="onReady"
@@ -30,6 +31,7 @@ $ npm install --save countup.js vue-countup-v2
     },
     data() {
       return {
+        delay: 1000,
         endVal: 120500,
         options: {
           useEasing: true,
@@ -60,6 +62,10 @@ $ npm install --save countup.js vue-countup-v2
 ```
 
 ## Properties
+
+* `delay` **[Number]**
+
+  Optional;
 
 * `endVal` **[Number]**
 

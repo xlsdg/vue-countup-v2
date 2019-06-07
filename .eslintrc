@@ -15,7 +15,7 @@
     "mocha": false,
     "mongo": false,
     "nashorn": false,
-    "node": false,
+    "node": true,
     "phantomjs": false,
     "prototypejs": false,
     "protractor": false,
@@ -29,10 +29,6 @@
   "extends": [
     "eslint-config-alloy/vue",
     "plugin:prettier/recommended",
-    "prettier/flowtype",
-    "prettier/react",
-    "prettier/standard",
-    "prettier/unicorn",
     "prettier/vue"
   ],
   "globals": {},
@@ -49,8 +45,6 @@
   ],
   "root": true,
   "rules": {
-    "jsx-a11y/click-events-have-key-events": "off",
-    "jsx-a11y/no-noninteractive-element-interactions": "off",
     "prettier/prettier": "error"
   }
 }
