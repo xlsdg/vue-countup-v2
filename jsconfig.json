@@ -3,6 +3,7 @@
     "noLib": false,
     // "target": "esnext",
     "checkJs": false,
+    "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
@@ -11,13 +12,5 @@
     }
   },
   "include": ["src/**/*"],
-  "exclude": [
-    "node_modules",
-    "**/node_modules/*",
-    "dist",
-    "bower_components",
-    "tmp",
-    "temp",
-    "jspm_packages"
-  ]
+  "exclude": ["node_modules", "**/node_modules/*", "dist", "bower_components", "tmp", "temp", "jspm_packages"]
 }

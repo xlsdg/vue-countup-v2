@@ -1,50 +1,27 @@
 {
   "env": {
-    "amd": false,
-    "applescript": false,
-    "atomtest": false,
-    "browser": true,
-    "commonjs": false,
-    "embertest": false,
-    "es6": true,
-    "greasemonkey": false,
-    "jasmine": false,
-    "jest": false,
-    "jquery": false,
-    "meteor": false,
-    "mocha": false,
-    "mongo": false,
-    "nashorn": false,
-    "node": true,
-    "phantomjs": false,
-    "prototypejs": false,
-    "protractor": false,
-    "qunit": false,
-    "serviceworker": false,
-    "shared-node-browser": false,
-    "shelljs": false,
-    "webextensions": false,
-    "worker": false
+    "browser": true
   },
-  "extends": [
-    "eslint-config-alloy/vue",
-    "plugin:prettier/recommended",
-    "prettier/vue"
-  ],
+  "extends": ["alloy", "alloy/react"],
   "globals": {},
-  "parser": "babel-eslint",
-  "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
-    },
-    "ecmaVersion": 2018,
-    "sourceType": "module"
-  },
-  "plugins": [
-    "prettier"
-  ],
+  "plugins": ["react-hooks", "prettier"],
   "root": true,
   "rules": {
-    "prettier/prettier": "error"
+    "no-invalid-this": "off",
+    "prettier/prettier": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "react-hooks/rules-of-hooks": "error",
+    "react/forbid-component-props": [
+      "error",
+      {
+        "forbid": ["id", "style"]
+      }
+    ],
+    "react/forbid-dom-props": [
+      "error",
+      {
+        "forbid": ["id", "style"]
+      }
+    ]
   }
 }
