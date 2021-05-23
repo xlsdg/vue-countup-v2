@@ -24,6 +24,11 @@
         type: Number,
         required: true,
       },
+      decimalPlaces: {
+        type: Number,
+        required: false,
+        default: 0,
+      },
       options: {
         type: Object,
         required: false,
@@ -55,10 +60,18 @@
         }
 
         const dom = that.$el;
+
+        // add a prop 'decimalPlaces' for more flexible use
+        const config = that.decimalPlaces
+          ? Object.assign({}, that.options, {
+              decimalPlaces: that.decimalPlaces,
+            })
+          : that.options;
+
         const instance = new CountUp(
           dom,
           that.endVal,
-          that.options
+          config
         );
 
         if (instance.error) {
