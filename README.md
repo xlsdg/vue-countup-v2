@@ -71,6 +71,10 @@ $ npm install --save countup.js vue-countup-v2
 
   Required; The value you want to arrive at.
 
+* `decimalPlaces` **[Number]**
+
+  Optional; The decimal places you want to reserve.
+
 * `options` **[Object]**
 
   Optional; Formatting/easing options object.
