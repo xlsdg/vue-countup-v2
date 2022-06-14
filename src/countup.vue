@@ -68,7 +68,7 @@
 
         that.instance = instance;
 
-        if (that.delay < 0) {
+        if (that.delay < 0 || that.options.enableScrollSpy) {
           that.$emit('ready', instance, CountUp);
           return;
         }
