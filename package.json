@@ -1,63 +1,89 @@
 {
+  "name": "vue-countup-v2",
+  "version": "5.0.0",
+  "type": "module",
+  "description": "A CountUp component for Vue 3 with TypeScript support",
   "author": "xLsDg <xlsdg@qq.com> (https://xlsdg.org/)",
-  "browser": "dist/countup.umd.min.js",
+  "license": "MIT",
+  "homepage": "https://github.com/xlsdg/vue-countup-v2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xlsdg/vue-countup-v2.git"
+  },
   "bugs": {
     "url": "https://github.com/xlsdg/vue-countup-v2/issues"
   },
-  "description": "A CountUp component for Vue",
-  "devDependencies": {
-    "@commitlint/cli": "^11.0.0",
-    "@commitlint/config-conventional": "^11.0.0",
-    "babel-eslint": "^10.1.0",
-    "bili": "^5.0.5",
-    "eslint": "^7.20.0",
-    "eslint-config-alloy": "^3.10.0",
-    "eslint-config-prettier": "^7.2.0",
-    "eslint-plugin-prettier": "^3.3.1",
-    "eslint-plugin-vue": "^7.6.0",
-    "husky": "^5.0.9",
-    "lint-staged": "^10.5.4",
-    "prettier": "^2.2.1",
-    "rollup-plugin-vue": "^5.1.9",
-    "vue": "^2.6.12",
-    "vue-eslint-parser": "7.5.0",
-    "vue-template-compiler": "^2.6.12"
-  },
-  "engines": {
-    "node": ">=8",
-    "npm": ">=5"
+  "keywords": [
+    "vue",
+    "vue3",
+    "countup",
+    "vue-countup",
+    "typescript",
+    "composition-api",
+    "component",
+    "library"
+  ],
+  "main": "./dist/countup.umd.js",
+  "module": "./dist/countup.es.js",
+  "types": "./dist/countup.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/countup.d.ts",
+      "import": "./dist/countup.es.js",
+      "require": "./dist/countup.umd.js"
+    }
   },
   "files": [
     "dist",
     "src"
   ],
-  "homepage": "https://github.com/xlsdg/vue-countup-v2",
-  "jsdelivr": "dist/countup.min.js",
-  "keywords": [
-    "vue",
-    "countup",
-    "vue-countup",
-    "library"
-  ],
-  "license": "MIT",
-  "main": "dist/countup.min.js",
-  "module": "dist/countup.esm.min.js",
-  "name": "vue-countup-v2",
-  "peerDependencies": {
-    "countup.js": "latest",
-    "vue": "latest"
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/xlsdg/vue-countup-v2.git"
+  "peerDependencies": {
+    "countup.js": "^2.x",
+    "vue": "^3.x"
   },
   "scripts": {
-    "build": "bili",
-    "release:major": "npm version major && npm publish",
-    "release:minor": "npm version minor && npm publish",
-    "release:patch": "npm version patch && npm publish"
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest --coverage",
+    "lint": "eslint . --fix",
+    "format": "prettier --write src/ docs/",
+    "type-check": "vue-tsc --noEmit",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs",
+    "prepare": "husky"
   },
-  "source": "src/countup.vue",
-  "unpkg": "dist/countup.min.js",
-  "version": "4.0.0"
+  "devDependencies": {
+    "@commitlint/cli": "^20.1.0",
+    "@commitlint/config-conventional": "^20.0.0",
+    "@eslint/js": "^9.39.1",
+    "@types/node": "^24.10.1",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "@vitest/coverage-v8": "^4.0.8",
+    "@vitest/ui": "^4.0.8",
+    "@vue/test-utils": "^2.4.6",
+    "countup.js": "^2.x",
+    "eslint": "^9.39.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-vue": "^10.5.1",
+    "happy-dom": "^20.0.10",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.6",
+    "prettier": "^3.6.2",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.4",
+    "vite": "^7.2.2",
+    "vite-plugin-dts": "^4.5.4",
+    "vitepress": "^1.6.4",
+    "vitest": "^4.0.8",
+    "vue": "^3.x",
+    "vue-tsc": "^3.1.3"
+  }
 }
