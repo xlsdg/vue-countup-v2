@@ -50,24 +50,22 @@ jobs:
           echo "version=$VERSION" >> $GITHUB_OUTPUT
 
           # Generate changelog (you can customize this)
-          echo "CHANGELOG<<EOF" >> $GITHUB_OUTPUT
-          git log $(git describe --tags --abbrev=0 HEAD^)..HEAD --pretty=format:"- %s (%h)" >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
+          CHANGELOG=$(git log $(git describe --tags --abbrev=0 HEAD^)..HEAD --pretty=format:"- %s (%h)")
+
+          # Create release notes
+          cat > release-notes.md << EOF
+          ## Changes in this release
+          $CHANGELOG
+
+          ## Installation
+          \`\`\`bash
+          npm install vue-countup-v2@$VERSION
+          \`\`\`
+          EOF
 
       - name: Create GitHub Release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ steps.changelog.outputs.version }}
-          body: |
-            ## Changes in this release
-            ${{ steps.changelog.outputs.CHANGELOG }}
-
-            ## Installation
-            \`\`\`bash
-            npm install vue-countup-v2@${{ steps.changelog.outputs.version }}
-            \`\`\`
+          body_path: release-notes.md
           draft: false
           prerelease: false
